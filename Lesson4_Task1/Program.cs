@@ -12,34 +12,19 @@ int InputNumber(string msg)
 int A = InputNumber("Введите первое число: ");
 int B = InputNumber("Введите второе число: ");
 
-// int degree = 0;
-// for (int B = 0; B <= A; i++)
-// {
-//     degree = degree * i;
-// }
-
-int Degree(int number)
+int DegreeResult(int number)
 {
-    int x = A;
-    int y = B;
-    
+	int degree = A;
+	for (int i = 1; i <= B - 1; i++)
+	{
+		degree = degree * A;
+	}
+	return degree;
 }
+	
 
-
-
-
-int Degree(int number)
-{
-    int sum = 0;
-    for (int i = 1; i <= number; i++)
-    {
-        sum = sum + i;
-    }
-    return sum;
-}
-
-System.Console.WriteLine(A);
-System.Console.WriteLine(B);
+int result = DegreeResult(A);
+System.Console.WriteLine($"Результат возведения первого числа в степень второго числа равен: {result}");
 
 
 
