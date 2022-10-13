@@ -25,15 +25,25 @@ int number = InputNumber("Введите число: ");
 int result = Count(number);
 
 int SumNumbers(int number)
+// {
+// 	int sum = 0;
+// 	for (int i = 1; i <= result; i++)
+// 	{
+// 		sum += number % 10;
+// 		number = number / 10;
+// 	}
+// 	return sum;
+// }
 {
-	int sum = 0;
-	for (int i = 1; i <= result; i++)
-	{
-		sum += number % 10;
-		number = number / 10;
-	}
-	return sum;
+	int result = 0;
+    while (number > 0)
+    {
+        result+=number%10;
+        number = number / 10;
+    }
+    return result;
 }
+
 
 int sum = SumNumbers(number);
 System.Console.WriteLine($"Сумма цифр числа равна: {sum}");
