@@ -9,3 +9,5 @@ for (int i = 0; i < array.Length; i++)
     array[i] = myRandom.Next(0, 100);
     Console.Write(array[i] + " ");
 }
+
+// Тут надо сделать через 2 функции, одна задает массив, вторая его выводит.
