@@ -19,13 +19,16 @@ int DegreeResult(int number)
 	{
 		degree = degree * A;
 	}
-    if (B == 0)
-    {
-        int result_DegreeZero = 1;
-        System.Console.WriteLine($"Результат возведения первого числа в нулевую степень числа равен: {result_DegreeZero}");
-    }
 	return degree;
 }
-	
+
 int result = DegreeResult(A);
-System.Console.WriteLine($"Результат возведения первого числа в степень второго числа равен: {result}");
+if (B == 0)
+    {
+        System.Console.WriteLine("Результат возведения числа в нулевую степень равен: 1");
+    }
+else
+{
+    System.Console.WriteLine($"Результат возведения первого числа в степень второго числа равен: {result}");;
+}
+
