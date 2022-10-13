@@ -20,11 +20,31 @@ int DegreeResult(int number)
 		degree = degree * A;
 	}
 	return degree;
+    // if (B == 0)
+    // {
+    //     System.Console.WriteLine("Результат возведения первого числа в степень второго числа равен: 1");
+    // }
 }
 	
 
 int result = DegreeResult(A);
 System.Console.WriteLine($"Результат возведения первого числа в степень второго числа равен: {result}");
 
+///////
 
+// bool DegreeZero(int number)
+// {
+//     if (B == 0)
+//     {
+//         System.Console.WriteLine("Результат возведения первого числа в степень второго числа равен: 1");
+//         return true;
+//     }
+//     return false;
+// }
+
+// if (B == 0)
+// {
+//     int result_DegreeZero = 1;
+//     System.Console.WriteLine($"Результат возведения первого числа в степень второго числа равен: {result_DegreeZero}");
+// }
 
