@@ -3,7 +3,7 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
-System.Console.Write("Сколько чисел вы бы хотели ввести:");
+System.Console.Write("Сколько чисел вы бы хотели ввести: ");
 int quantity = Convert.ToInt32(Console.ReadLine());
 
 // int InputNumber(string message)
@@ -19,28 +19,47 @@ int quantity = Convert.ToInt32(Console.ReadLine());
 
 // int n = InputNumber("Введите число:");
 
-int[] RandomArrGen()
+int[] Numbers(int[] array)
 {
     int length = quantity;
     int[] arr = new int[length];
-    for (int i = 0; i < length; i++)
+    for (int i = 1; i <= arr.Length; i++)
     {
-        arr[i] = new Random().Next(1, 10);
-        System.Console.Write($"{arr[i]} ");
+        System.Console.Write($"Введите число под номером {i}: ");
+        arr[i] = Convert.ToInt32(Console.ReadLine());
     }
     return arr;
 }
 
-bool CheckTraingle(int[] arr)
+int[] numbers = Numbers(arr);
+
+int QuantityPositive()
 {
-    if(arr[0] + arr[1] < arr[2]) return false;
-    if(arr[0] + arr[2] < arr[1]) return false;
-    if(arr[2] + arr[1] < arr[0]) return false;
-    return true;
+    int count = 0;
+    for (int i = 0; i < quantity; i++)
+    {
+        if (numbers[i] > 0)
+        {
+            count++;
+        }
+    }
+    return count;
 }
 
-int[] triangle = RandomArrGen();
-System.Console.WriteLine(CheckTraingle(triangle));
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < quantity; i++)
+    {
+        System.Console.Write($"{array[i]}\t");
+    }
+    System.Console.WriteLine();
+}
+
+PrintArray(QuantityPositive(array));
+
+int count = QuantityPositive();
+// System.Console.WriteLine(numbers);
+System.Console.WriteLine("Количество введенных чисел больше нуля, равно: " + count);
 
 // void Prompt(string[] msg)
 // {
