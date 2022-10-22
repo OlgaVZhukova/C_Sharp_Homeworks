@@ -30,17 +30,27 @@ double b1 = InputNumber("Введите первый свободный член
 double k2 = InputNumber("Введите второй угловой коэффициент k2:");
 double b2 = InputNumber("Введите второй свободный член b2:");
 
-if (k1 == k2)
+bool ValidateLines(double k1, double k2, double b1, double b2)
 {
-    Console.WriteLine("Прямые параллельны друг другу.");
+	if (k1 == k2)
+	{
+		Console.WriteLine("Прямые параллельны друг другу.");
+		return false;
+	}
+
+	if (b1 == b2)
+	{
+		Console.WriteLine($"Прямые пересекаются в точке (0; {b1}).");
+		return false;
+	}
+	return true;
 }
 
-if (b1 == b2)
+if (ValidateLines(k1, k2, b1, b2))
 {
-    Console.WriteLine($"Прямые пересекаются в точке (0; {b1}).");
+	double x = (b2 - b1) / (k1 - k2);
+	double y = k1*x + b1;
+	System.Console.WriteLine($"Точка пересечения двух прямых находится в точке с координатами: ({x};{y})");
 }
 
-double x = (b2 - b1) / (k1 - k2);
-double y = k1*x + b1;
-System.Console.WriteLine($"Точка пересечения двух прямых находится в точке с координатами: ({x};{y})");
 
