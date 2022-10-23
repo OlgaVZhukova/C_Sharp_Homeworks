@@ -12,7 +12,7 @@ double[,] CreateArray(int lenRows, int lenColumns)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = random.NextDouble() * 10;
+            array[i, j] = random.Next(-10, 10) + random.NextDouble();
         }
     }
     return array;
