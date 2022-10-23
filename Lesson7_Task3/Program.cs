@@ -31,25 +31,40 @@ void PrintArray(int[,] array)
     }
 }
 
-int Average(int[,] array)
-{
-    int sum = 0;
+int[,] array = CreateArray(3, 4);
+PrintArray(array);
+
+// double Average(int[,] array)
+double[] averageNumbers = new double[array.GetLength(1)];
+// {
+    // double sum = 0;
+    // double[] averageNumbers = new double[array.GetLength(1)];
     for (int i = 0; i < array.GetLength(1); i++)
     {
+        double sum = 0.0;
         for (int j = 0; j < array.GetLength(0); j++)
         {
             sum = sum + array[j, i];
         }
+        averageNumbers[i] = sum / array.GetLength(0);
     }
-    return sum;
+    // return averageNumbers;
+// }
+
+void PrintArrayAverage(double[] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        System.Console.Write(array[i] + " ");
+    }
+        System.Console.WriteLine();
 }
 
-
-
-int[,] array = CreateArray(3, 4);
-PrintArray(array);
+// int[,] array = CreateArray(3, 4);
+// PrintArray(array);
+PrintArrayAverage(averageNumbers);
 System.Console.WriteLine();
 // System.Console.WriteLine($"Среднее арифметическое каждого столбца: {result}");
-System.Console.WriteLine(Average(array));
+System.Console.WriteLine(averageNumbers);
 
 
