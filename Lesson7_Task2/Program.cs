@@ -6,9 +6,9 @@
 // 1,7 -> такого числа в массиве нет
 // 0,2 -> 7
 
-System.Console.Write("Введите номер позиции элемента в строке: ");
+System.Console.Write("Введите номер позиции элемента в строке от 0 до 2: ");
 int indexRow = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите номер позиции элемента в колонке: ");
+System.Console.Write("Введите номер позиции элемента в колонке 0 до 3: ");
 int indexColumn = Convert.ToInt32(Console.ReadLine());
 
 //я умею и функцией, но мне хотелось различить приглашение на ввод указанием именно на то строка это или колонка.
@@ -29,7 +29,7 @@ int[,] CreateArray(int lenRows, int lenColumns)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = random.Next(-10, 10);
+            array[i, j] = random.Next(0, 10);
         }
     }
     return array;
@@ -65,32 +65,30 @@ int Search(int[,] array, int indexRow, int indexColumn)
 int[,] array = CreateArray(3, 4);
 PrintArray(array);
 int result = Search(array, indexRow, indexColumn);
-System.Console.WriteLine();
-System.Console.WriteLine($"Значение искомого элемента: {result}");
 
-// if (indexRow > array.GetUpperBound(0))
+// if (indexRow > array.GetLength(0) && indexColumn > array.GetLength(1))
 // {
 //     System.Console.WriteLine("Таких позиций в массиве нет.");
 // }
-// else
-// {
-//     System.Console.WriteLine($"Значение искомого элемента: {result}");
-// }
+
+System.Console.WriteLine();
+System.Console.WriteLine($"Значение искомого элемента: {result}");
+
 
 // bool ValidateSearch(int[,] array, int indexRow, int indexColumn)
 // {
-// 	if (indexRow < 0 || indexRow > array.Length)
+// 	if (indexRow < 0 || indexRow > array.GetLength(0))
 // 	{
 // 		Console.WriteLine("Такой позиции в массиве нет.");
 // 		return false;
 // 	}
 
-// 	if (indexColumn < 0 || indexColumn > array.Length);
+// 	if (indexColumn < 0 || indexColumn > array.GetLength(1));
 //     {
 // 		Console.WriteLine("Такой позиции в массиве нет.");
 // 		return false;
 // 	}
-// 	return indexRow;
+// 	return true;
 // }
 
 // if (ValidateSearch(array, indexRow, indexColumn))
@@ -105,5 +103,5 @@ System.Console.WriteLine($"Значение искомого элемента: {
 //             }
 //         }
 //     }
-//     System.Console.WriteLine($"Значение искомого элемента: ");
+//     System.Console.WriteLine($"Значение искомого элемента: i, j ");
 // }
