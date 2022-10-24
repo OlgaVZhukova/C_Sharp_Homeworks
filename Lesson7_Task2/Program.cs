@@ -6,24 +6,22 @@
 // 1,7 -> такого числа в массиве нет
 // 0,2 -> 7
 
-System.Console.Write("Введите номер позиции элемента в строке от 0 до 2: ");
-int indexRow = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите номер позиции элемента в колонке 0 до 3: ");
-int indexColumn = Convert.ToInt32(Console.ReadLine());
+int indexRow = Prompt("Введите номер позиции элемента в строке от 0 до 2: ");
+int indexColumn = Prompt("Введите номер позиции элемента в колонке 0 до 3: ");
+int[,] array = new int[3, 4];
+//int[,] array = CreateArray(3, 4);
+CreateArray(array);
+PrintArray(array);
 
-//я умею и функцией, но мне хотелось различить приглашение на ввод указанием именно на то строка это или колонка.
-// int Prompt()
-// {
-//     System.Console.WriteLine("Введите число:");
-//     int a = Convert.ToInt32(Console.ReadLine());
-//     return a;
-// }
-// int indexRow = Prompt();
-// int indexColumn = Prompt();
+if (indexRow < array.GetLength(0) || indexColumn < array.GetLength(1)) Console.WriteLine($"Значение искомого элемента: {array[indexRow, indexColumn]}");
+else Console.WriteLine($"{indexRow},{indexColumn} -> такого числа в массиве нет.");
 
-int[,] CreateArray(int lenRows, int lenColumns)
+
+
+
+void CreateArray(int[,] array)
 {
-    int[,] array = new int[lenRows, lenColumns];
+    //int[,] array = new int[lenRows, lenColumns];
     Random random = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -32,7 +30,6 @@ int[,] CreateArray(int lenRows, int lenColumns)
             array[i, j] = random.Next(0, 10);
         }
     }
-    return array;
 }
 
 void PrintArray(int[,] array)
@@ -47,61 +44,10 @@ void PrintArray(int[,] array)
     }
 }
 
-int Search(int[,] array, int indexRow, int indexColumn)
+int Prompt(string message)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i, j] == array[indexRow, indexColumn])
-            {
-                return array[i, j];
-            }
-        }
-    }
-    return -1;
+    System.Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
 
-int[,] array = CreateArray(3, 4);
-PrintArray(array);
-int result = Search(array, indexRow, indexColumn);
 
-// if (indexRow > array.GetLength(0) && indexColumn > array.GetLength(1))
-// {
-//     System.Console.WriteLine("Таких позиций в массиве нет.");
-// }
-
-System.Console.WriteLine();
-System.Console.WriteLine($"Значение искомого элемента: {result}");
-
-
-// bool ValidateSearch(int[,] array, int indexRow, int indexColumn)
-// {
-// 	if (indexRow < 0 || indexRow > array.GetLength(0))
-// 	{
-// 		Console.WriteLine("Такой позиции в массиве нет.");
-// 		return false;
-// 	}
-
-// 	if (indexColumn < 0 || indexColumn > array.GetLength(1));
-//     {
-// 		Console.WriteLine("Такой позиции в массиве нет.");
-// 		return false;
-// 	}
-// 	return true;
-// }
-
-// if (ValidateSearch(array, indexRow, indexColumn))
-// {
-// 	for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             if (array[i, j] == array[indexRow, indexColumn])
-//             {
-//                 return array[i, j];
-//             }
-//         }
-//     }
-//     System.Console.WriteLine($"Значение искомого элемента: i, j ");
-// }
