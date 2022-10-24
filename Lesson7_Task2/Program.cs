@@ -9,7 +9,6 @@
 int indexRow = Prompt("Введите номер позиции элемента в строке от 0 до 2: ");
 int indexColumn = Prompt("Введите номер позиции элемента в колонке 0 до 3: ");
 int[,] array = new int[3, 4];
-//int[,] array = CreateArray(3, 4);
 CreateArray(array);
 PrintArray(array);
 
