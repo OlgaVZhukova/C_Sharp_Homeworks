@@ -15,12 +15,8 @@ PrintArray(array);
 if (indexRow < array.GetLength(0) || indexColumn < array.GetLength(1)) Console.WriteLine($"Значение искомого элемента: {array[indexRow, indexColumn]}");
 else Console.WriteLine($"{indexRow},{indexColumn} -> такого числа в массиве нет.");
 
-
-
-
 void CreateArray(int[,] array)
 {
-    //int[,] array = new int[lenRows, lenColumns];
     Random random = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
