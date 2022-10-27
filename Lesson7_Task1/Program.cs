@@ -18,20 +18,18 @@ double[,] CreateArray(int lenRows, int lenColumns)
     return array;
 }
 
-//выведем теперь это на экран
 void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write($"{array[i, j]}\t"); //благодаря \t (табуляции) будут более-менее ровные колонки, даже с 2-х-значными числами
+            System.Console.Write($"{array[i, j]}\t");
         }
-        System.Console.WriteLine(); // отображение простой строчки после каждой строчки
+        System.Console.WriteLine();
     }
 }
 
-//теперь нужно массив сгенерировать
 double[,] array = CreateArray(3, 4);
 PrintArray(array);
 
