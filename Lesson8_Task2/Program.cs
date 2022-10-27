@@ -44,17 +44,17 @@ void RowMinSum(int[,] array)
     {
         minRow += array[0, i];
     }
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++) sumRow += array[i, j];
-        if (sumRow < minRow)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            minRow = sumRow;
-            minSumRow = i;
+            for (int j = 0; j < array.GetLength(1); j++) sumRow += array[i, j];
+            if (sumRow < minRow)
+            {
+                minRow = sumRow;
+                minSumRow = i;
+            }
+            sumRow = 0;
         }
-        sumRow = 0;
-    }
-    Console.Write($"{minSumRow + 1} строка");
+        Console.Write($"{minSumRow + 1} строка");
 }
 
 RowMinSum(array);
