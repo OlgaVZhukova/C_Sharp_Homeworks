@@ -58,5 +58,3 @@ void PrintArrayAverage(double[] array)
 PrintArrayAverage(averageNumbers);
 System.Console.WriteLine();
 System.Console.WriteLine(averageNumbers);
-
-
