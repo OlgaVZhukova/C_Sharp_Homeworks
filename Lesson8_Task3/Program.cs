@@ -76,6 +76,5 @@ int[,] ProductArrays(int quantityRow, int quantityColumn)
 
 System.Console.WriteLine();
 int[,] resultArray = ProductArrays(quantityRow, quantityColumn);
-// PrintArray(resultArray);
 System.Console.WriteLine("Произведение этих двух матриц будет равно следующему массиву:");
 PrintArray(resultArray);
