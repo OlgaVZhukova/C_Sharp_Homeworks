@@ -13,7 +13,7 @@ int[,,] CreateArray(int lenRows, int lenColumns, int lenDepth)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                array[i, j, k] = random.Next(10, 100, 100);
+                array[i, j, k] = random.Next(10, 100, 100); // Нужен генератор случайных чисел, который принимает три аргумента!
             }
         }
     }
