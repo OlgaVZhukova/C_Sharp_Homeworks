@@ -22,7 +22,7 @@ void CreateArray(int[,,] arr)
     }
 }
 
-// Функция вывода трехмерного массива в консоль
+// Функция вывода трехмерного массива в терминал
 void PrintArray(int[,,] arr)
 {
     for (int i = 0; i < array.GetLength(0); i++)
