@@ -3,39 +3,40 @@
 // 12(0,0,0) 22(0,0,1)
 // 45(1,0,0) 53(1,0,1)
 
-int[,,] CreateArray(int lenRows, int lenColumns, int lenDepth)
+int[,,] array = new int[2, 2, 2];
+
+// Функция заполнения трехмерного массива неповторяющимися числами
+void CreateArray(int[,,] arr)
 {
-    int[,,] array = new int[lenRows, lenColumns, lenDepth];
-    Random random = new Random();
+    int count = 25;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            for (int k = 0; k < arr.GetLength(2); k++)
+            {
+                arr[k, i, j] += count;
+                count += 5;
+            }
+        }
+    }
+}
+
+// Функция вывода трехмерного массива в консоль
+void PrintArray(int[,,] arr)
+{
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
+            Console.WriteLine();
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                array[i, j, k] = random.Next(10, 100, 100); // Нужен генератор случайных чисел, который принимает три аргумента!
+                Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
             }
         }
     }
-    return array;
 }
 
-void PrintArray(int[,,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            for (int k = 0; k < array.GetLength(2); k++)
-            {
-                System.Console.Write($"{array[i, j, k]}\t");
-            }
-        }
-        System.Console.WriteLine();
-    }
-}
-
-int[,,] array = CreateArray(2, 2, 2);
+CreateArray(array);
 PrintArray(array);
-
-
