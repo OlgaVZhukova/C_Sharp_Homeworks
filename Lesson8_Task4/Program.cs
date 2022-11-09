@@ -1,42 +1,42 @@
-﻿// Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-// массив размером 2 x 2 x 2
-// 12(0,0,0) 22(0,0,1)
-// 45(1,0,0) 53(1,0,1)
+﻿// Задача 4: * Напишите программу, которая заполнит спирально квадратный массив.
 
-int[,,] array = new int[2, 2, 2];
+int length = 4;
+int[,] table = new int[length, length];
 
-// Функция заполнения трехмерного массива неповторяющимися числами
-void CreateArray(int[,,] arr)
+//  Функция заполнения массива по спирали начиная с единицы
+void FillArraySpiral(int[,] array, int n)
 {
-    int count = 25;
-    for (int i = 0; i < arr.GetLength(0); i++)
+    int i = 0, j = 0;
+    int value = 1;
+    for (int e = 0; e < n * n; e++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            for (int k = 0; k < arr.GetLength(2); k++)
-            {
-                arr[k, i, j] += count;
-                count += 5;
-            }
-        }
+        int k = 0;
+        do { array[i, j++] = value++; } while (++k < n - 1);
+        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
+        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
+        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
+        ++i; ++j;
+        n = n < 2 ? 0 : n - 2;
     }
 }
 
-// Функция вывода трехмерного массива в терминал
-void PrintArray(int[,,] arr)
+//  Функция вывода двумерного массива в терминал
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.WriteLine();
-            for (int k = 0; k < array.GetLength(2); k++)
+            if (array[i, j] < 10)
             {
-                Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
+                Console.Write("0" + array[i, j]);
+                Console.Write(" ");
             }
+            else Console.Write(array[i, j] + " ");
         }
+        Console.WriteLine();
     }
 }
 
-CreateArray(array);
-PrintArray(array);
+FillArraySpiral(table, length);
+PrintArray(table);
