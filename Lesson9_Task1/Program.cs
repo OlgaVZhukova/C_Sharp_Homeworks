@@ -2,21 +2,39 @@
 // M = 1; N = 5 -> "2, 4"
 // M = 4; N = 8 -> "4, 6, 8"
 
-System.Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int count = 1;
-NaturalToLow(number, count);
-
-
-void NaturalToLow(int n, int count)
+int Prompt(string message)
 {
-    if (count > n)
+    System.Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+int m = Prompt("Введите число M: ");
+int n = Prompt("Введите число N: ");
+int count = 0;
+
+int EvenFromMToN(int m, int n, int count)
+{
+    if (m > n)
     {
-        return;
+        System.Console.Write("M больше N, не получится подсчитать. ");
+        // return 0;
     }
     else
     {
-        NaturalToLow(n, count + 1);
-        Console.Write(count + " ");
+        // EvenFromMToN(m, n);
+        if (m % 2 != 0) return EvenFromMToN(m + 1, n, count);
+        // {
+        //     count = count + 2;
+        //     Console.Write(count + " ");
+        // }
+        else return EvenFromMToN(m + 2, n, count);
+        // {
+        //     count++;
+        //     Console.Write(count + " ");
+        // }
+        // return;
     }
+    return 0;
 }
+
+EvenFromMToN(m, n, count);
