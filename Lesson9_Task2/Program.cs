@@ -13,7 +13,7 @@ int n = Prompt("Введите число N: ");
 
 int SumMN(int m, int n)
 {
-    int result = 0;
+    int result = m;
     if (m == n || m > n)
         return 0;
     else
@@ -30,3 +30,4 @@ void SumFromMToN(int m, int n)
 }
 
 SumFromMToN(m, n);
+
