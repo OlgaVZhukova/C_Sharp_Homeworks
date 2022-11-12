@@ -13,8 +13,8 @@ int n = Prompt("Введите число N: ");
 
 int SumMN(int m, int n)
 {
-    int result = m;
-    if (m == n)
+    int result = 0;
+    if (m == n || m > n)
         return 0;
     else
     {
