@@ -8,9 +8,6 @@ int Prompt(string message)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int m = Prompt("Введите число M: ");
-int n = Prompt("Введите число N: ");
-
 int SumMN(int m, int n)
 {
     int result = m;
@@ -29,5 +26,7 @@ void SumFromMToN(int m, int n)
     Console.Write($"Cумма чисел от M до N равняется {SumMN(m - 1, n)} ");
 }
 
+int m = Prompt("Введите число M: ");
+int n = Prompt("Введите число N: ");
 SumFromMToN(m, n);
 
